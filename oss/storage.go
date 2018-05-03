@@ -28,10 +28,10 @@ func (s *storage) Iterator(prefix string, lastKey string) Iterator {
 	return iter
 }
 
-func (s *storage) StoreFile(key string, blob []byte, KVs ...KV) (string, error) {
+func (s *storage) StoreFile(key string, blob []byte, kvs ...KV) (string, error) {
 	options := make([]oss.Option, 0)
-	for _, KV := range KVs {
-		options = append(options, oss.Meta(KV[0], KV[1]))
+	for _, kv := range kvs {
+		options = append(options, oss.Meta(kv[0], kv[1]))
 	}
 	return s.bucket.PutObject(key, bytes.NewReader(blob), options...)
 }

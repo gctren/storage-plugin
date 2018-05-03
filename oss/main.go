@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-	. "github.com/ctripcorp/nephele/storage"
 	"github.com/ctrip-nephele/aliyun-oss-go-sdk/oss"
+	. "github.com/ctripcorp/nephele/storage"
+	"os"
 )
 
 func main() {}
