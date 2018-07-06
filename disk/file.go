@@ -44,7 +44,7 @@ func (f *file) Meta() (Fetcher, error) {
 }
 
 func (f *file) Append(blob []byte, index int64, kvs ...KV) (int64, string, error) {
-	fd, err := os.OpenFile(f.Key(), os.O_APPEND|os.O_CREATE, 0666)
+	fd, err := os.OpenFile(f.Key(), os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
 	if err != nil {
 		return 0, "", err
 	}
